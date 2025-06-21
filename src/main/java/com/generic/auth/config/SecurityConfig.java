@@ -16,7 +16,7 @@ public class SecurityConfig {
         return http
                 .csrf(ServerHttpSecurity.CsrfSpec::disable) // disable CSRF for Postman testing
                 .authorizeExchange(exchanges -> exchanges
-                        .pathMatchers("/api/auth/signup").permitAll()  // allow signup without auth
+                        .pathMatchers("/api/auth/signup", "/api/auth/login").permitAll()  // allow signup without auth
                         .anyExchange().authenticated()                // everything else requires auth
                 )
                 .httpBasic().disable()

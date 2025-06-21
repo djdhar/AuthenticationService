@@ -1,5 +1,7 @@
 package com.generic.auth.controller;
 
+import com.generic.auth.dto.LoginRequest;
+import com.generic.auth.dto.LoginResponse;
 import com.generic.auth.dto.SignupRequest;
 import com.generic.auth.service.AuthService;
 import lombok.RequiredArgsConstructor;
@@ -19,5 +21,11 @@ public class AuthController {
     public Mono<Object> signup(@RequestBody SignupRequest request) {
         return authService.signup(request);
     }
+
+    @PostMapping("/login")
+    public Mono<LoginResponse> login(@RequestBody LoginRequest request) {
+        return authService.login(request);
+    }
+
 }
 
